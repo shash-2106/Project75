@@ -47,14 +47,26 @@ export default class ReadStoryScreen extends React.Component{
        
          
         var document = "HkF9bU169F9lfrXRhW9h";
+        if(this.state.search==""){
+ 
+        const list = await db.collection("books").get();
+        list.docs.map(doc=>{
+            this.setState({
+             allStories:[...this.state.allStories, doc.data()],
+        
+            })
+        })
+        }
+        else{
     const query = await db.collection("books").where("title","==",this.state.search).get();
+    
     query.docs.map(doc=>{
         this.setState({
          allStories:[...this.state.allStories, doc.data()],
     
         })
     })
-
+    }
     }
 
 }

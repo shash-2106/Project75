@@ -73,8 +73,7 @@ submitStory=async()=>{
     var document = "HkF9bU169F9lfrXRhW9h"
    db.collection("books").doc(document).update({"title":this.state.title,"author":this.state.author,"story":this.state.story});
    db.collection("books").set({"bookId":document});
- /*  db.ref("author").update({"author":this.state.author});
-   db.ref("story").update({"story":this.state.story});*/
+ 
    var submitMessage = "Story and details submitted";
   ToastAndroid.show(submitMessage, ToastAndroid.SHORT);
         
